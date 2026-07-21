@@ -4,6 +4,7 @@ import Footer from "./footer";
 import Items from "./items";
 import MenuLeft from "./menuLeft";
 import "./App.css";
+import ScrollMenu from "./popularProduct";
 
 function App() {
   const [products] = useState([
@@ -72,6 +73,7 @@ function App() {
         </main>
       </div>
 
+      <ScrollMenu />
       <Footer />
     </div>
   );

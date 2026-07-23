@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ScrollMenu() {
-  const sections = [
+  const [sections] = useState([
     { id: 1, title: "Кухні" },
     { id: 2, title: "Вітальня" },
     { id: 3, title: "Спальня" },
@@ -10,7 +10,7 @@ export default function ScrollMenu() {
     { id: 6, title: "Гардероб" },
     { id: 7, title: "Тераса" },
     { id: 8, title: "Інтер'єр" },
-  ];
+  ]);
 
   return (
     <section className="brand-menu">

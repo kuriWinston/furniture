@@ -5,6 +5,7 @@ import Items from "./items";
 import MenuLeft from "./menuLeft";
 import "./App.css";
 import ScrollMenu from "./popularProduct";
+import Delivery from "./queastion";
 
 function App() {
   const [products] = useState([
@@ -70,6 +71,7 @@ function App() {
               </div>
             </div>
           </div>
+          <Delivery />
         </main>
       </div>
 

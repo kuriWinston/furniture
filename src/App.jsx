@@ -38,7 +38,7 @@ function App() {
               <Items key={item.id} item={item}  />
             ))}
           </div>
-
+            <ScrollMenu />
           <div className="whyWe">
             <div className="whyWe-content">
               <h2>Чому вибирають саме нас?</h2>
@@ -73,7 +73,7 @@ function App() {
         </main>
       </div>
 
-      <ScrollMenu />
+      
       <Footer />
     </div>
   );

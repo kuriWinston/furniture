@@ -251,7 +251,7 @@
 }
 
 .whyWe {
-  width: min(1550px, 100%);
+  width: min(1450px, 100%);
   margin: 32px auto 0;
   padding: 32px 24px;
   background: linear-gradient(135deg, #f7efe7 0%, #ead8c7 100%);
@@ -261,7 +261,7 @@
 }
 
 .brand-menu {
-  width: min(1550px, 100%);
+  width: min(1350px, 100%);
   margin: 40px auto 0;
   padding: 32px 24px;
   background: #ffffff;

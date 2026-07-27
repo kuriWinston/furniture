@@ -25,7 +25,7 @@ function Delivery() {
 
   const headingStyle = {
     margin: 0,
-    fontSize: 32,
+    fontSize: 40, // increased from 32 (~15%)
     color: "#252525",
   };
 
@@ -43,14 +43,14 @@ function Delivery() {
 
   const iconBox = {
     flexShrink: 0,
-    width: 36,
-    height: 36,
+    width: 48,
+    height: 48,
     borderRadius: 12,
     background: "#dcd3c9",
     color: "#1f1f1f",
     display: "grid",
     placeItems: "center",
-    fontSize: 18,
+    fontSize: 20,
   };
 
   const rightStyle = {

@@ -3,7 +3,7 @@ export default function Header() {
     return (
         <header className="site-header">
             <div className="navbar">
-                <span className="logo">House Stuff</span>
+                <span className="logo">Mebly</span>
 
                 <ul className="nav">
                     <li><a href="#about">Про нас</a></li>

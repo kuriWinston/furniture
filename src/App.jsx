@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import Items from "./items";
-import MenuLeft from "./menuLeft";
 import "./App.css";
 import ScrollMenu from "./popularProduct";
 import Delivery from "./queastion";
@@ -27,11 +26,14 @@ function App() {
     <div className="wrapper">
       <Header />
       <div className="layout">
-        <MenuLeft />
 
         <main className="main-content">
           <div className="Card">
-            <h2>Знайдіть ідеальні меблі для дому, де кожна деталь створює справжній затишок</h2>
+            <h2>
+              Знайдіть <span className="underline">ідеальні</span> меблі для дому, де кожна
+               деталь створює справжній
+               затишок
+            </h2>
           </div>
 
           <div className="products">

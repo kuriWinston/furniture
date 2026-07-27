@@ -13,9 +13,9 @@
   }
 }
 .Card {
-  font-size: 21px;
+  font-size: 27px;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1800px;
   margin-bottom: 30px;
   background-color: white;
   border-radius: 10px;
@@ -163,48 +163,6 @@
   justify-content: flex-start;
 }
 
-.sidebar {
-  flex: 0 0 260px;
-  position: sticky;
-  top: 120px;
-  left: 0;
-  align-self: flex-start;
-  margin-right: 0;
-  background-color: #ffffff;
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.sidebar-section {
-  margin-bottom: 26px;
-}
-
-.sidebar-section h3 {
-  margin: 0 0 14px;
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: #222;
-}
-
-.sidebar-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-section li {
-  margin-bottom: 12px;
-  font-size: 0.95rem;
-  color: #333;
-  cursor: pointer;
-  transition: color 150ms ease;
-}
-
-.sidebar-section li:hover {
-  color: #7b4a35;
-}
 
 .main-content {
   flex: 1;
@@ -214,7 +172,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 24px;
-  width: min(1400px, 100%);
+  width: min(1600px, 100%);
   margin: 30px auto 0;
   padding: 8px 0 12px;
 }
@@ -251,7 +209,7 @@
 }
 
 .whyWe {
-  width: min(1450px, 100%);
+  width: min(1650px, 100%);
   margin: 32px auto 0;
   padding: 32px 24px;
   background: linear-gradient(135deg, #f7efe7 0%, #ead8c7 100%);
@@ -261,7 +219,7 @@
 }
 
 .brand-menu {
-  width: min(1350px, 100%);
+  width: min(1550px, 100%);
   margin: 40px auto 0;
   padding: 32px 24px;
   background: #ffffff;
@@ -275,18 +233,6 @@
   margin-bottom: 24px;
 }
 
-.brand-menu__header h2 {
-  margin: 0;
-  font-size: 2rem;
-  color: #3d2d20;
-}
-
-.brand-menu__header p {
-  margin: 10px auto 0;
-  max-width: 640px;
-  color: #6b5b4d;
-  font-size: 0.98rem;
-}
 
 .brand-menu__grid {
   display: grid;

@@ -68,13 +68,6 @@ header .presentation{
 
 
 
-
-
-footer{
-  text-align: center;
-  margin-top: 100px;
-}
-
 .products {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -128,4 +121,9 @@ footer{
 
 .product-card img:empty {
   background-color: #ffffff;
+}
+
+footer{
+  text-align: center;
+  margin-top: 100px;
 }

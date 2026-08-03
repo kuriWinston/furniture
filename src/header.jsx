@@ -1,5 +1,5 @@
 
-export default function Header() {
+export default function Header({ onOpenAuth }) {
     return (
         <header className="site-header">
             <div className="navbar">
@@ -11,7 +11,9 @@ export default function Header() {
                     <li><a href="#catalog">Меню</a></li>
 
                     <li>
+                        <button type="button" className="nav-button" onClick={onOpenAuth}>
                             Зареєструватись
+                        </button>
                     </li>
                 </ul>
             </div>

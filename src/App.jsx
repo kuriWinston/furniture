@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import Items from "./items";
+import AuthMenu from "./AuthMenu";
 import "./App.css";
 import ScrollMenu from "./popularProduct";
 import Delivery from "./queastion";
@@ -22,9 +23,28 @@ function App() {
     { id: 12, name: 'Матраси', img: '/imgTovar/matras.jpg', price: 4999},
   ]);
 
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+
   return (
     <div className="wrapper">
-      <Header />
+      <Header onOpenAuth={() => setIsAuthOpen(true)} />
+
+      {isAuthOpen && (
+        <div className="auth-overlay" onClick={() => setIsAuthOpen(false)}>
+          <div className="auth-overlay__content" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              className="auth-overlay__close"
+              onClick={() => setIsAuthOpen(false)}
+              aria-label="Закрити"
+            >
+              ×
+            </button>
+            <AuthMenu />
+          </div>
+        </div>
+      )}
+
       <div className="layout">
 
         <main className="main-content">

@@ -1,0 +1,471 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap");
+
+/* ==========================================================================
+   Переменные темы (бежево-белые-серые тона)
+   ========================================================================== */
+.auth-page {
+  --color-bg: #faf8f5;
+  --color-surface: #ffffff;
+  --color-surface-muted: #fbf9f6;
+  --color-surface-hover: #f8f5f0;
+
+  --color-beige: #efe7da;
+  --color-beige-deep: #d8ccb4;
+  --color-border: #e3dcd0;
+
+  --color-accent: #a68a64;
+  --color-accent-hover: #8a7150;
+
+  --color-text: #2e2b27;
+  --color-text-hover: #3d3a35;
+  --color-text-secondary: #8b8680;
+  --color-text-muted: #5c574e;
+  --color-placeholder: #b7b0a3;
+
+  --radius-lg: 28px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+
+  --font-display: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease-out;
+}
+
+/* ==========================================================================
+   Каркас страницы
+   ========================================================================== */
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+  background: var(--color-bg);
+  font-family: var(--font-body);
+}
+
+/* декоративные размытые пятна на фоне */
+.auth-page__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.auth-page__blob--top {
+  top: -96px;
+  left: -96px;
+  width: 288px;
+  height: 288px;
+  background: linear-gradient(to bottom right, var(--color-beige-deep), var(--color-beige));
+  opacity: 0.6;
+  animation: float 12s ease-in-out infinite;
+}
+
+.auth-page__blob--bottom {
+  bottom: -128px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(to top right, var(--color-border), var(--color-bg));
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Карточка
+   ========================================================================== */
+.auth-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: 0 20px 60px -15px rgba(46, 43, 39, 0.15);
+  padding: 40px;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 28px 20px;
+  }
+}
+
+/* ==========================================================================
+   Логотип
+   ========================================================================== */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.auth-logo__mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-bg);
+}
+
+.auth-logo__text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   Переключатель "Регистрация / Вход"
+   ========================================================================== */
+.auth-tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color-beige);
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.auth-tabs__indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: calc(50% - 4px);
+  background: var(--color-surface);
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(46, 43, 39, 0.08);
+  transition: transform var(--transition-slow);
+}
+
+.auth-tabs__indicator--login {
+  transform: translateX(calc(100% + 4px));
+}
+
+.auth-tabs__indicator--register {
+  transform: translateX(4px);
+}
+
+.auth-tabs__button {
+  position: relative;
+  z-index: 1;
+  padding: 10px 0;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  transition: color var(--transition-slow);
+}
+
+.auth-tabs__button--active {
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   Панель формы (заголовок + поля)
+   ========================================================================== */
+.auth-panel {
+  animation: fade-up 0.4s ease both;
+}
+
+.auth-panel__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-text);
+  margin: 0 0 6px;
+}
+
+.auth-panel__subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0 0 28px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   Поле ввода
+   ========================================================================== */
+.form-field__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.form-field__control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: 12px 14px;
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.form-field__control:focus-within {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+.form-field__icon {
+  flex-shrink: 0;
+  display: flex;
+  color: var(--color-accent);
+}
+
+.form-field__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.form-field__input::placeholder {
+  color: var(--color-placeholder);
+}
+
+.form-field__toggle {
+  flex-shrink: 0;
+  display: flex;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-base);
+}
+
+.form-field__toggle:hover {
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   Чекбокс согласия
+   ========================================================================== */
+.auth-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-top: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-checkbox__box {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1px solid var(--color-beige-deep);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.auth-checkbox__box--checked {
+  background: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.auth-checkbox__text {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.auth-checkbox__link {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ==========================================================================
+   Ссылка "забыли пароль" и кнопка отправки
+   ========================================================================== */
+.auth-forgot {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.auth-forgot__link {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.auth-forgot__link:hover {
+  color: var(--color-text);
+}
+
+.auth-submit {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border: none;
+  border-radius: 0;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color var(--transition-base), opacity var(--transition-base);
+}
+
+.auth-submit:hover:not(:disabled) {
+  background: var(--color-text-hover);
+}
+
+.auth-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Разделитель "или" и кнопка Google
+   ========================================================================== */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.auth-divider__line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.auth-divider__text {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.auth-social {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+
+.auth-social:hover {
+  background: var(--color-surface-hover);
+}
+
+/* ==========================================================================
+   Переключение "уже есть аккаунт?"
+   ========================================================================== */
+.auth-switch {
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: 24px;
+}
+
+.auth-switch__button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.auth-switch__button:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Анимации
+   ========================================================================== */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Доступность
+   ========================================================================== */
+.auth-page button:focus-visible,
+.auth-page input:focus-visible,
+.auth-page a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-page__blob--top,
+  .auth-panel {
+    animation: none;
+  }
+}

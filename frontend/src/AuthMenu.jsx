@@ -33,22 +33,21 @@ export default function AuthMenu() {
 
         <ModeSwitcher mode={mode} onChange={setMode} />
 
-        {/* key=mode перезапускает анимацию появления при смене режима */}
         <div key={mode} className="auth-panel">
           <h1 className="auth-panel__title">
-            {isRegister ? "Создайте аккаунт" : "С возвращением"}
+            {isRegister ? "Создайте аккаунт" : "З поверненням"}
           </h1>
           <p className="auth-panel__subtitle">
-            {isRegister ? "Это займёт меньше минуты" : "Введите данные, чтобы продолжить"}
+            {isRegister ? "Це займе меньше хвилини" : "Введіть дані щоб продовжити"}
           </p>
 
           <form className="auth-form" onSubmit={handleSubmit}>
             {isRegister && (
               <Field
                 icon={<User size={17} />}
-                label="Имя"
+                label="Імя"
                 type="text"
-                placeholder="Как к вам обращаться"
+                placeholder="Як до вас звертатися"
                 value={form.name}
                 onChange={updateField("name")}
                 required
@@ -69,7 +68,7 @@ export default function AuthMenu() {
               icon={<Lock size={17} />}
               label="Пароль"
               type={showPassword ? "text" : "password"}
-              placeholder="Минимум 8 символов"
+              placeholder="Мінімум 8 символів"
               value={form.password}
               onChange={updateField("password")}
               required
@@ -82,9 +81,9 @@ export default function AuthMenu() {
             {isRegister && (
               <Field
                 icon={<Lock size={17} />}
-                label="Подтвердите пароль"
+                label="Підтвердіть пароль"
                 type={showConfirm ? "text" : "password"}
-                placeholder="Повторите пароль"
+                placeholder="Повторіть пароль"
                 value={form.confirm}
                 onChange={updateField("confirm")}
                 required
@@ -99,22 +98,22 @@ export default function AuthMenu() {
             ) : (
               <div className="auth-forgot">
                 <a href="#" className="auth-forgot__link">
-                  Забыли пароль?
+                  Забули пароль?
                 </a>
               </div>
             )}
 
             <button type="submit" className="auth-submit" disabled={isRegister && !agreed}>
-              {isRegister ? "Зарегистрироваться" : "Войти"}
+              {isRegister ? "Зареєструватися" : "Війти"}
               <ArrowRight size={16} />
             </button>
           </form>
 
-          <Divider text="или" />
+          <Divider text="або" />
 
           <button type="button" className="auth-social">
             <GoogleIcon />
-            Продолжить с Google
+            Продовжити з Google
           </button>
 
           <SwitchModeLink isRegister={isRegister} onSwitch={setMode} />
@@ -161,7 +160,7 @@ function ModeSwitcher({ mode, onChange }) {
         onClick={() => onChange("register")}
         className={`auth-tabs__button ${mode === "register" ? "auth-tabs__button--active" : ""}`}
       >
-        Регистрация
+        Регистрація
       </button>
 
       <button
@@ -200,7 +199,7 @@ function PasswordToggle({ visible, onToggle }) {
       type="button"
       onClick={onToggle}
       className="form-field__toggle"
-      aria-label={visible ? "Скрыть пароль" : "Показать пароль"}
+      aria-label={visible ? "Скрити пароль" : "Показати пароль"}
     >
       {visible ? <EyeOff size={17} /> : <Eye size={17} />}
     </button>
@@ -220,10 +219,10 @@ function AgreementCheckbox({ checked, onToggle }) {
         {checked && <Check size={12} color="#FAF8F5" strokeWidth={3} />}
       </span>
       <span className="auth-checkbox__text">
-        Я согласен с{" "}
-        <a href="#" className="auth-checkbox__link">условиями использования</a>{" "}
+        Я згоден з{" "}
+        <a href="#" className="auth-checkbox__link">вимогами користування</a>{" "}
         и{" "}
-        <a href="#" className="auth-checkbox__link">политикой конфиденциальности</a>
+        <a href="#" className="auth-checkbox__link">політикою конфедиціальності</a>
       </span>
     </label>
   );
@@ -250,16 +249,16 @@ function SwitchModeLink({ isRegister, onSwitch }) {
     <p className="auth-switch">
       {isRegister ? (
         <>
-          Уже есть аккаунт?{" "}
+          Вже є аккаунт?{" "}
           <button type="button" className="auth-switch__button" onClick={() => onSwitch("login")}>
             Войти
           </button>
         </>
       ) : (
         <>
-          Нет аккаунта?{" "}
+          Нема аккаунта?{" "}
           <button type="button" className="auth-switch__button" onClick={() => onSwitch("register")}>
-            Зарегистрироваться
+            Зареєструватися
           </button>
         </>
       )}
